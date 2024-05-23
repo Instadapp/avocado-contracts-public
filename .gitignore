@@ -1,0 +1,16 @@
+node_modules/
+cache/
+build/
+typechain/
+artifacts/
+coverage*
+.env
+
+typechain-types
+# local deployments
+deployments/localhost
+deployments/hardhat
+# generated docs
+docs/ 
+
+.DS_Store

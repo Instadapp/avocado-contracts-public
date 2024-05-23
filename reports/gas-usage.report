@@ -1,0 +1,327 @@
+
+> avocado-contracts@1.1.0 gas-report
+> cross-env NODE_ENV=TEST npx hardhat test --deploy-fixture ./scripts/gas-usage-report.ts
+
+[
+  {
+    version: '0.8.18',
+    settings: {
+      optimizer: [Object],
+      outputSelection: [Object],
+      metadata: [Object]
+    }
+  }
+]
+Nothing to compile
+No need to generate any newer typings.
+
+
+00_DEPLOY_AVO_FACTORY_PROXY______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed avoFactory proxy to 0x7530d656E090a600da2B2Fa101ba07f27AbAf636 for temporary proxyAdmin: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+--------------------------------------------
+
+
+
+00_AvoRegistry______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed avoRegistry (logic contract) to 0x72aE2CA64Ebeb407f8716281999557473012746f
+Deployed avoRegistry proxy to 0x27839C5c6897e455398A0867Df9A742E23b15Ef5 for proxyAdmin: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC and owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+--------------------------------------------
+
+
+
+01_AvoFactory______________________________________________
+
+Upgraded Implementation and changed owner
+
+--------------RESULT------------------------------
+Deployed avoFactory (logic contract) to 0xea7d6d8938d64376Ec0AD02dc123c4c3a0FA2393
+Deployed avoFactory proxy upgraded to deployed avoFactory and proxyAdmin changed to: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+--------------------------------------------
+
+
+
+03_AvoForwarder______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed AvoForwarder (logic contract) to 0xB320E677C1E07F10Ad3e2819983b77d10E38fe48
+Deployed AvoForwarder proxy to 0x37CD63D91cd60BD2598D50BC95f3b53309b184A5 for proxyAdmin: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC and owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+--------------------------------------------
+
+
+
+04_REGISTER_FORWARDER_VERSION______________________________________________
+
+
+--------------RESULT------------------------------
+Registered AvoForwarder at AvoRegistry:  0x37CD63D91cd60BD2598D50BC95f3b53309b184A5
+--------------------------------------------
+
+
+
+05_AVO_CONFIG_V1______________________________________________
+
+deployed local mock usdc token for deposit manager and received mock funds to user1
+
+--------------RESULT------------------------------
+Deployed AvoConfigV1 0x1cedA5145bC301a8F0D8D2526eF55FdfED1a241F
+--------------------------------------------
+
+
+
+06_AVO_SIGNERS_LIST______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed AvoSignersList (logic contract) to 0xee51aB9FE9C8364AAa8c07b5D91E1a15Ba18DF0b
+Deployed AvoSignersList proxy to 0xfc19ec494A1306E3f150bF423EF674C56e344fd1 for proxyAdmin: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+--------------------------------------------
+
+
+
+07_AVOCADO_MULTISIG_SECONDARY______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed AvocadoMultisigSecondary (logic contract) to 0x6ca41C6159106d1822711dEeC863c2d035caeB8C
+--------------------------------------------
+
+
+
+08_AVOCADO_MULTISIG_LOGIC_CONTRACT______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed AvocadoMultisig (logic contract) to 0x200BdB094e1F3726F4Ad95dBe81eb544ca131341
+--------------------------------------------
+
+
+
+09_SET_AVOIMPL_AT_REGISTRY______________________________________________
+
+
+--------------RESULT------------------------------
+Registered AvocadoMultisig logic contract at AvoRegistry (and set as default):  0x200BdB094e1F3726F4Ad95dBe81eb544ca131341
+--------------------------------------------
+
+
+
+10_AvoDepositManager______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed AvoDepositManager (logic contract) to 0x9372A710d2809739CF1AebE2E5F3717D9EFB7b8d
+Deployed AvoDepositManager proxy to 0xF184d06D252405bFaA4ED5F7EEeC7E0E51af3Ed2 for proxyAdmin: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+--------------------------------------------
+
+
+
+11_ALLOW_BROADCASTER______________________________________________
+
+
+--------------RESULT------------------------------
+Allow broadcaster at AvoForwarder:  0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f
+--------------------------------------------
+
+
+
+12_DEPLOY_Avocado_FOR_USER1______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed Avocado (proxy) contract for user1 (account[5]):  0xc7B06192AB6302F46019D40dFb3C52602eA60A42
+--------------------------------------------
+
+
+
+13_AvoGasEstimationsHelper______________________________________________
+
+
+--------------RESULT------------------------------
+Deployed AvoGasEstimationsHelper (logic contract) to 0x7A59f9C6C9f7d1669291b7B786Ac2A18b4061658
+--------------------------------------------
+
+
+
+  Gas usage reports
+    
+
+AvoFactory ----------------------- 
+computeAvocado()_________
+32,003 estimated gas
+      ✔ computeAvocado() (113ms)
+deploy()_________
+286,411 ACTUAL USED GAS
+286,411 (estimated gas)
+      ✔ deploy() (101ms)
+deploy() with trackInStorage=false_________
+219,335 ACTUAL USED GAS
+228,759 (estimated gas)
+      ✔ deploy() with trackInStorage=false (395ms)
+deployWithVersion()_________
+297,584 ACTUAL USED GAS
+297,584 (estimated gas)
+      ✔ deployWithVersion() (200ms)
+    
+
+AvoForwarder ----------------------- 
+computeAvocado()_________
+32,607 estimated gas
+      ✔ computeAvocado() (43ms)
+executeMultisig() with signature and deploy_________
+345,317 ACTUAL USED GAS______
+
+(estimated gas): 354,084
+      ✔ executeMultisig() with signature if Avocado must be deployed (745ms)
+executeMultisig() with signature and deploy, with failing action_________
+369,334 ACTUAL USED GAS______
+
+(estimated gas): 369,334
+      ✔ executeMultisig() with signature if Avocado must be deployed, with failing action (266ms)
+executeMultisig() with signature, Avocado already deployed, 1st transaction(nonce = 0)_________
+91,326 ACTUAL USED GAS______
+
+(estimated gas): 91,326
+      ✔ executeMultisig() with signature if Avocado is already deployed, 1st transaction(nonce = 0) (192ms)
+executeMultisig() with signature, Avocado already deployed, nth transaction(nonce > 0)_________
+91,326 ACTUAL USED GAS______
+
+(estimated gas): 91,326
+      ✔ executeMultisig() with signature if Avocado is already deployed, nth transaction(nonce > 0) (326ms)
+    
+
+Avocado (proxy) ----------------------- 
+castAuthorized() with fee and maxFee_________
+95,203 ACTUAL USED GAS FIRST TX (nonce = 0)
+(estimated gas FIRST TX) 95,203
+95,215 ACTUAL USED GAS SECOND TX (nonce > 0)
+(estimated gas SECOND TX) 95,215
+      ✔ castAuthorized(), using Avocado directly (354ms)
+castAuthorized() with fee and maxFee, with failing action_________
+126,026 ACTUAL USED GAS
+(estimated gas) 126,026
+      ✔ castAuthorized(), using Avocado directly, with failing action (227ms)
+castAuthorized() with maxFee > 0, fee = 0_________
+85,307 ACTUAL USED GAS
+(estimated gas) 85,307
+      ✔ castAuthorized(), using Avocado directly when maxFee > 0, fee = 0 (181ms)
+castAuthorized() with maxFee = 0, fee > 0_________
+95,108 ACTUAL USED GAS
+(estimated gas) 95,108
+      ✔ castAuthorized() using Avocado directly when maxFee = 0, fee > 0 (178ms)
+castAuthorized() with maxFee = 0, fee = 0_________
+85,223 ACTUAL USED GAS
+(estimated gas) 85,223
+      ✔ castAuthorized() using Avocado directly when maxFee = 0, fee = 0 (358ms)
+      castAuthorized() using Avocado directly with various signer counts
+108,427 ACTUAL USED GAS for castAuthorized() with signers count:  2
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 2 (819ms)
+118,810 ACTUAL USED GAS for castAuthorized() with signers count:  3
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 3 (957ms)
+129,175 ACTUAL USED GAS for castAuthorized() with signers count:  4
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 4 (1127ms)
+139,600 ACTUAL USED GAS for castAuthorized() with signers count:  5
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 5 (1906ms)
+191,520 ACTUAL USED GAS for castAuthorized() with signers count:  10
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 10 (3239ms)
+295,417 ACTUAL USED GAS for castAuthorized() with signers count:  20
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 20 (6458ms)
+607,584 ACTUAL USED GAS for castAuthorized() with signers count:  50
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 50 (14809ms)
+1,024,770 ACTUAL USED GAS for castAuthorized() with signers count:  90
+        ✔ castAuthorized() using Avocado directly with signer counts (=also set as requiredSigners): 90 (28106ms)
+      addSigners() using Avocado directly with various signer counts
+279,290 ACTUAL USED GAS for add signers count (trackInStorage=true):  1
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:1 (160ms)
+359,942 ACTUAL USED GAS for add signers count (trackInStorage=true):  2
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:2 (192ms)
+439,292 ACTUAL USED GAS for add signers count (trackInStorage=true):  3
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:3 (208ms)
+518,347 ACTUAL USED GAS for add signers count (trackInStorage=true):  4
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:4 (252ms)
+597,428 ACTUAL USED GAS for add signers count (trackInStorage=true):  5
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:5 (245ms)
+993,913 ACTUAL USED GAS for add signers count (trackInStorage=true):  10
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:10 (335ms)
+1,786,355 ACTUAL USED GAS for add signers count (trackInStorage=true):  20
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:20 (548ms)
+4,164,990 ACTUAL USED GAS for add signers count (trackInStorage=true):  50
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:50 (1194ms)
+7,253,184 ACTUAL USED GAS for add signers count (trackInStorage=true):  89
+        ✔ addSigners() trackInStorage=true, via Avocado castAuthorized with signer counts:89 (1958ms)
+202,329 ACTUAL USED GAS for add signers count (trackInStorage=false):  1
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:1 (218ms)
+215,526 ACTUAL USED GAS for add signers count (trackInStorage=false):  2
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:2 (232ms)
+228,155 ACTUAL USED GAS for add signers count (trackInStorage=false):  3
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:3 (261ms)
+240,061 ACTUAL USED GAS for add signers count (trackInStorage=false):  4
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:4 (272ms)
+252,409 ACTUAL USED GAS for add signers count (trackInStorage=false):  5
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:5 (275ms)
+314,090 ACTUAL USED GAS for add signers count (trackInStorage=false):  10
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:10 (352ms)
+434,404 ACTUAL USED GAS for add signers count (trackInStorage=false):  20
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:20 (555ms)
+801,035 ACTUAL USED GAS for add signers count (trackInStorage=false):  50
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:50 (1072ms)
+1,273,397 ACTUAL USED GAS for add signers count (trackInStorage=false):  89
+        ✔ addSigners() trackInStorage=false, via Avocado castAuthorized with signer counts:89 (1862ms)
+        when already 10 signers present
+338,401 ACTUAL USED GAS for adding 1 signer
+          ✔ addSigners() add 1 signer when already 10 signers present (162ms)
+254,748 ACTUAL USED GAS for removing 1 signer
+          ✔ removeSigners() remove 1 signer when already 10 signers present (150ms)
+336,072 ACTUAL USED GAS for adding 1 signer
+          ✔ addSigners() add 1 signer when already 10 signers present (158ms)
+254,227 ACTUAL USED GAS for removing 1 signer
+          ✔ removeSigners() remove 1 signer when already 10 signers present (151ms)
+338,020 ACTUAL USED GAS for adding 1 signer
+          ✔ addSigners() add 1 signer when already 10 signers present (165ms)
+255,148 ACTUAL USED GAS for removing 1 signer
+          ✔ removeSigners() remove 1 signer when already 10 signers present (151ms)
+    
+
+Token transfer comparison ----------------------- 
+
+EOA, Avocado (Multisig, castAuthorized). AvoForwarder (Multisig, executeMultisig), token transfer cost_________
+
+
+51,378 ACTUAL USED GAS EOA -> Avocado 
+(estimated gas EOA -> Avocado) 51378
+108,956 ACTUAL USED GAS Avocado (Multisig, castAuthorized) -> EOA
+(estimated gas Avocado -> EOA) 108956
+105,114  ACTUAL USED GAS AvoForwarder (Multisig, execute) -> EOA
+(estimated gas AvoForwarder -> EOA) 105114
+
+
+57578 GAS COST DIFFERENCE Avocado (Multisig, castAuthorized) <> EOA_____
+53736 GAS COST DIFFERENCE Forwarder (Multisig, execute) <> EOA_____
+
+
+359,094  ACTUAL USED GAS AvoForwarder (Multisig, execute) -> EOA WITH DEPLOY
+(estimated gas AvoForwarder (Multisig, execute) -> EOA WITH DEPLOY) 359094
+
+
+106,819  ACTUAL USED GAS AvoForwarder (Multisig, execute) -> EOA WITH FAILING ACTION
+(estimated gas AvoForwarder (Multisig, execute) -> EOA WITH FAILING ACTION) 106819
+
+
+      ✔ compare gas cost for token send cost for: EOA, Avocado (castAuthorized), AvoForwarder (cast), Avocado (castAuthorized). AvoForwarder (castMultisig) (860ms)
+    
+
+AvocadoMultisig Flashloan
+301,993 ACTUAL USED GAS______
+
+(estimated gas): 301993
+      ✔ flashloan gas cost (directly via AvocadoMultisig castAuthorized) (797ms)
+
+
+  48 passing (1m)
+
