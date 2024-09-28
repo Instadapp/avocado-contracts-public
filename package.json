@@ -1,0 +1,70 @@
+{
+  "name": "avocado-contracts",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "build:ci": "npm run clean && npx hardhat compile --force",
+    "clean": "npx hardhat clean",
+    "compile": "npx hardhat compile",
+    "debug": "cross-env NODE_ENV=DEBUG npx hardhat test --deploy-fixture",
+    "test": "cross-env NODE_ENV=TEST npx hardhat test --deploy-fixture",
+    "test:ci": "cross-env NODE_ENV=CI npx hardhat test --deploy-fixture",
+    "gas-report": "cross-env NODE_ENV=TEST npx hardhat test --deploy-fixture ./scripts/gas-usage-report.ts",
+    "gas-report:store": "npm run gas-report > ./reports/gas-usage.report",
+    "storage-report": "npx hardhat check",
+    "storage-report:store": "npx hardhat check > ./reports/storage-layout.report",
+    "contract-size-report": "npx hardhat size-contracts",
+    "contract-size-report:store": "npx hardhat size-contracts > ./reports/contracts-size.report",
+    "reports": "npm run storage-report:store && npm run gas-report:store && npm run contract-size-report:store",
+    "docs": "npx hardhat docgen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InstaDApp/avo-safe-contracts.git"
+  },
+  "author": {
+    "name": "INSTADAPP LABS LLC",
+    "email": "info@instadapp.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InstaDApp/avo-safe-contracts/issues"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-network-helpers": "~1.0.7",
+    "@nomiclabs/hardhat-ethers": "~2.2.1",
+    "@nomiclabs/hardhat-waffle": "~2.0.3",
+    "@typechain/ethers-v5": "~10.1.1",
+    "@typechain/hardhat": "~6.1.4",
+    "@types/chai": "~4.3.4",
+    "@types/chai-as-promised": "~7.1.5",
+    "@types/mocha": "~10.0.1",
+    "@types/node": "~18.11.11",
+    "chai": "~4.3.7",
+    "chai-as-promised": "~7.1.1",
+    "cross-env": "~7.0.3",
+    "dotenv": "~16.0.3",
+    "ethereum-waffle": "~3.4.4",
+    "ethers": "~5.7.2",
+    "ganache-cli": "~6.12.2",
+    "hardhat": "~2.12.3",
+    "hardhat-contract-sizer": "~2.8.0",
+    "hardhat-deploy": "~0.11.22",
+    "hardhat-storage-layout": "~0.1.7",
+    "solidity-docgen": "^0.6.0-beta.35",
+    "ts-generator": "~0.1.1",
+    "ts-node": "~10.9.1",
+    "typechain": "~8.1.1",
+    "typescript": "~4.9.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "4.8.0",
+    "@openzeppelin/contracts-upgradeable": "4.8.0",
+    "solmate": "6.7.0"
+  },
+  "resolutions": {
+    "ethereumjs-abi": "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz"
+  }
+}
